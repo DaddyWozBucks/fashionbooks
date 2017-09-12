@@ -1,17 +1,15 @@
-import {TodoService, initialTodo} from './todos';
+import {NytService} from './nyt';
 
 describe('TodoService', () => {
-  let todos;
-  let todoService;
+  let nytService;
 
   beforeEach(() => {
-    todos = [initialTodo];
-    todoService = new TodoService();
+    nytService = new NytService();
   });
 
-  it('should add a todo to the list', () => {
-    const res = todoService.addTodo('Hello', todos);
-    expect(res.length).toEqual(2);
+  it('should retrieve cat list', () => {
+    const res = nytService.getLists();
+    expect(res.data.results.length).toEqual(2);
     expect(res[0].id).toEqual(1);
   });
 

@@ -19,5 +19,13 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
           component: 'landing'
         }
       }
+    })
+    .state('app.list', {
+      url: '/list/:id',
+      views: {
+        'main@app': {
+          component: 'list'
+        }
+      }
     });
 }

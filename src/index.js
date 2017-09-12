@@ -2,13 +2,12 @@ import angular from 'angular';
 
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-import {TodoService} from './app/todos/todos';
+import {NytService} from './app/nyt/nyt';
 import {App} from './app/containers/App';
 import {Header} from './app/components/header/Header';
 import {MainSection} from './app/components/main/MainSection';
 import {Landing} from './app/components/landing/Landing';
-import {Welcome} from './app/components/welcome/Welcome';
+import {List} from './app/components/list/List';
 
 import {Footer} from './app/components/footer/Footer';
 import 'angular-ui-router';
@@ -20,11 +19,11 @@ import './index.scss';
 angular
   .module('app', ['ui.router'])
   .config(routesConfig)
-  .service('todoService', TodoService)
+  .service('nytService', NytService)
   .component('app', App)
   .component('headerComponent', Header)
   .component('footerComponent', Footer)
   .component('mainSection', MainSection)
   .component('landing', Landing)
-  .component('welcome', Welcome);
+  .component('list', List);
 

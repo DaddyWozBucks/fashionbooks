@@ -1,52 +1,38 @@
+import {NYT_KEY} from '../constants/nyt';
+
 export class NytService {
-  constructor($http, $q) {
+  constructor($http, $q, $log) {
     this.http = $http;
     this.q = $q;
+    this.logger = $log;
   }
   getBooks(list) {
+    const deferred = this.q.defer();
+    const req = {
+      method: 'POST',
+      url: 'https://us-central1-tktr-fa4cf.cloudfunctions.net/getBooks',
+      data: {
+        list
+      }
+    };
+    this.http(req).then(response => deferred.resolve(response.data));
+    return deferred.promise;
+  }
+
+  getLists() {
+    const deferred = this.q.defer();
     const req = {
       method: 'GET',
-      url: 
-    }
-    this.http()
-    return [
-      {
-        id: (todos.length === 0) ? 0 : todos[0].id + 1,
-        completed: false,
-        text
+      url: 'https://us-central1-tktr-fa4cf.cloudfunctions.net/getLists',
+      q: {
+        'api-key': NYT_KEY
       }
-    ].concat(todos);
-  }
-
-  completeTodo(id, todos) {
-    return todos.map(todo => {
-      return todo.id === id ?
-        Object.assign({}, todo, {completed: !todo.completed}) :
-        todo;
+    };
+    this.http(req).then(response => {
+      deferred.resolve(response.data);
+      this.logger.warn(response.data);
     });
+    return deferred.promise;
   }
 
-  deleteTodo(id, todos) {
-    return todos.filter(todo => todo.id !== id);
-  }
-
-  editTodo(id, text, todos) {
-    return todos.map(todo => {
-      return todo.id === id ?
-        Object.assign({}, todo, {text}) :
-        todo;
-    });
-  }
-
-  completeAll(todos) {
-    const areAllMarked = todos.every(todo => todo.completed);
-    return todos.map(todo => Object.assign({}, todo, {completed: !areAllMarked}));
-  }
-
-  clearCompleted(todos) {
-    return todos.filter(todo => {
-      return todo.completed === false;
-    });
-  }
 }
-
