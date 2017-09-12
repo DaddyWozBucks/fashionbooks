@@ -6,7 +6,6 @@ describe('List component', () => {
   class MockNytService {
     getBooks() {}
     getLists() {}
-   
   }
 
   let component;
@@ -24,7 +23,7 @@ describe('List component', () => {
   }));
 
   it('should call getBooks', () => {
-    let list = 'e-book-fiction';
+    const list = 'e-book-fiction';
     spyOn(component.nytService, 'getBooks').and.callThrough();
     component.nytService.getBooks(list).then(function(data) {
       expect(data.results[0].list_name_enconded).toEqual(list);
