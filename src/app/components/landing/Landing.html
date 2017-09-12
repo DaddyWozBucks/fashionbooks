@@ -1,0 +1,20 @@
+
+   <div flex="100" layout="row" layout-align="center start" layout-wrap="layout-wrap" >
+    <div flex="100" layout="row" layout-align="center center" layout-wrap="layout-wrap" ng-style="{'background-image': 'url(' + $ctrl.titleBg + ')'}" class="start_view" class="title">
+      <div flex="100" flex-gt-sm="none" layout="row" layout-align="center center" class="title_text">
+        <h2 flex="none" class="nom blood">BLOOD</h2>
+      </div>
+      <div flex="100" flex-gt-sm="none" layout="row" layout-wrap="layout-wrap" layout-align="center center" class="title_text">
+        <h2 flex="none" class="nom sweat">SWEAT</h2>
+      </div>
+      <div flex="100" flex-gt-sm="none" layout="row" layout-align="center center" class="title_text">
+        <h2 flex="none" class="nom tears">TEARS</h2>
+      </div>
+      <div flex="100" layout="row" layout-align="center center" class="title_dev">
+        <h4 flex="none" class="nom">DEVELOPMENT</h4>
+      </div>
+      <div flex="none" layout="row" layout-align="center" ng-class="{'hidden':!$ctrl.startView}" class="p_start">
+        <md-button ng-click="$ctrl.start()">Player 1 Press Start	</md-button>
+      </div>
+    </div>
+  </div>

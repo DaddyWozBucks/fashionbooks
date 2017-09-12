@@ -1,0 +1,19 @@
+div(flex="100" layout="row" layout-align="center start" layout-wrap)
+	
+	div.title(flex="100" layout="row" layout-align="center center" layout-wrap ng-style="{'background-image': 'url(' + titleBg + ')'}" ng-class="{'start_view': startView}")
+		//- div.blog_btn(flex="none")
+		//- 	md-button(ui-sref="app.blog") Blog
+		div.title_text(flex="100" flex-gt-sm="none" layout="row" layout-align="center center")
+			h2.nom.blood(flex="none") BLOOD
+		div.title_text(flex="100" flex-gt-sm="none" layout="row" layout-wrap layout-align="center center")
+			h2.nom.sweat(flex="none") SWEAT
+		
+		//- 	h1.nom.amp(flex="none" hide-xs hide-sm) &
+		//- div.title_text(flex="100" flex-gt-sm="none" hide-gt-sm layout="row" layout-wrap layout-align="center center")
+		//- 	h1.nom.amp(flex="none" ) &
+		div.title_text(flex="100" flex-gt-sm="none" layout="row" layout-align="center center")
+			h2.nom.tears(flex="none") TEARS
+		div.title_dev(flex="100" layout="row" layout-align="center center")
+			h4.nom(flex="none") DEVELOPMENT
+		div.p_start(flex="none" layout="row" layout-align="center" ng-class="{'hidden':!startView}")
+			md-button(ng-click="startGame()") Player 1 Press Start
