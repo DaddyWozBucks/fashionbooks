@@ -1,9 +1,17 @@
 <header class="header container-fluid row" >
-  <div layout-align="center center" class="blog_header col-12 row">
-   
- 
-      <h1  class="center nocifer nom mx-auto">Fashion Cloud</h1>
+  <div class="blog_header col-12 flex-row d-flex">
+    <div class="d-flex flex-row w-75">
+      <h1  class="nocifer nom">Fashion Cloud</h1>
+      <h3 class="racing nom white"> New York Time Book Lists</h3>
+    </div>
 
-   
+     <div class="dropdown text-right d-flex">
+      <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Lists
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#" ng-repeat="list in $ctrl.listOne.results" ui-sref="app.list({id: list.list_name_encoded})">{{list.display_name}}</a>
+      </div>
+    </div>
   </div>
 </header>

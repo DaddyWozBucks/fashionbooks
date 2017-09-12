@@ -70,12 +70,17 @@
   background: rgb(12,13,18);
   color: white;
   blur: 5px;
+  position: relative;
   height:50px;
   @media screen and (max-width: 600px){
     height:30px;
     h1{
       font-size: 14px;
     }
+  }
+  .blog_header_text {
+    position: absolute;
+    margin: 0 auto;
   }
   .blog_icon{
     i{

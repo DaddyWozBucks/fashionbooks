@@ -1,29 +1,41 @@
-<div class="container-fluid row">
-  <div class="col-12">
-    <h2 class="text-center mx-auto"> {{$ctrl.listTitle}} </h2>
+<div  listOne="listOne" class="container-fluid row d-flex justify-content-center">
+  <div class="col-12 d-flex justify-content-around">
+    <h2 class="text-center racing"> {{$ctrl.listTitle}} </h2>
+    <p> Last modified {{$ctrl.lastModified}}</p>
   </div>
   <div class="col-12 col-md-10 col-lg-8 row">
    <div class="col-12 row">
      <div class="col-3"> Sort By</div>
      <div class="btn-group" role="group" aria-label="Sorting">
-        <button type="button" class="btn btn-secondary" ng-click="$ctrl.setOrderKey('title')">Title</button>
-        <button type="button" class="btn btn-secondary" ng-click="$ctrl.setOrderKey('author')">Author</button>
-        <button type="button" class="btn btn-secondary" ng-click="$ctrl.setOrderKey('rank')">Rank</button>
-        <button type="button" class="btn btn-secondary" ng-click="$ctrl.setOrderKey('prev_rank')">Previous Rank</button>
+        <button type="button" class="btn btn-clear" ng-click="$ctrl.setOrderKey('book_details[0].title')">Title</button>
+        <button type="button" class="btn btn-clear" ng-click="$ctrl.setOrderKey('book_details[0].author')">Author</button>
+        <button type="button" class="btn btn-clear" ng-click="$ctrl.setOrderKey('rank')">Rank</button>
+        <button type="button" class="btn btn-clear" ng-click="$ctrl.setOrderKey('rank_last_week')">Previous Rank</button>
       </div>
    </div>
     <ul class="list-group col-12">
       <li class="list-group-item  row" ng-repeat="book in $ctrl.bookList.results | orderBy: $ctrl.listOrderKey">
        <div class="col-12 row">
-         <h3 class="col-6">Title: {{book.book_details[0].title}} </h3>
-         <h3 class="col-6"> Author: {{book.book_details[0].author}} </h3>
+         <h3 class=""><small>Title:</small> {{book.book_details[0].title}} </h3>
+         
        </div>
        <div class="col-12 row">
-         <h5> <strong>Rank: </strong>{{book.rank}} </h5>
-         <i class="material-icons" aria-hidden="true" ng-if="book.rank > book.rank_last_week"> arrow_upward </i>
-         <i class="material-icons" aria-hidden="true" ng-if="book.rank < book.rank_last_week"> arrow_downward </i>
-         <i class="material-icons" aria-hidden="true" ng-if="book.rank == book.rank_last_week"> compare_arrows </i>
-         <p> <strong>Previous Rank: </strong> {{book.rank_last_week}} </p>
+       <div class="col-7">
+         <h3 > <small>Author:</small> {{book.book_details[0].author}} </h3>
+       </div>
+        <div class="col-5 row">
+           <div class="col-12 d-flex flex-row-reverse">
+             <h5> <strong>Rank: </strong>{{book.rank}} </h5>
+             <i class="material-icons" aria-hidden="true" ng-if="book.rank > book.rank_last_week"> arrow_upward </i>
+             <i class="material-icons" aria-hidden="true" ng-if="book.rank < book.rank_last_week"> arrow_downward </i>
+             <i class="material-icons" aria-hidden="true" ng-if="book.rank == book.rank_last_week"> compare_arrows </i>
+             <p> <strong>Previous Rank: </strong> {{book.rank_last_week}} </p>
+           </div>
+           <div class="col-12 d-flex flex-row-reverse">
+             <p> <strong>Previous Rank: </strong> {{book.rank_last_week}} </p>
+           </div>
+        </div>
+        
        </div>
         
         </li>

@@ -18,5 +18,6 @@ export const Landing = {
   template: require('./Landing.html'),
   controller: LandingController,
   bindings: {
+    listOne: '='
   }
 };
