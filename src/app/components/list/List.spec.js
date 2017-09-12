@@ -4,7 +4,7 @@ import {List} from './List';
 
 describe('List component', () => {
   class MockNytService {
-    getBooks(list) {}
+    getBooks() {}
     getLists() {}
    
   }
@@ -21,12 +21,14 @@ describe('List component', () => {
 
   beforeEach(angular.mock.inject($componentController => {
     component = $componentController('List', {}, {});
-    list = 'e-book-fiction';
   }));
 
-  it('shoud call getBooks', () => {
+  it('should call getBooks', () => {
+    let list = 'e-book-fiction';
     spyOn(component.nytService, 'getBooks').and.callThrough();
-    component.getBooks(list);
+    component.nytService.getBooks(list).then(function(data) {
+      expect(data.results[0].list_name_enconded).toEqual(list);
+    });
     expect(component.nytService.getBooks).toHaveBeenCalled();
   });
 
